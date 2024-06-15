@@ -2,7 +2,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
 class SpotifyAPI:
-    def __init__(self, CID, CSECRET) -> None:
+    def __init__(self, CID, CSECRET):
         auth_manager = SpotifyClientCredentials(client_id=CID, client_secret=CSECRET)
         self.sp = spotipy.Spotify(auth_manager=auth_manager)
 
@@ -38,8 +38,3 @@ class SpotifyAPI:
             track = self.get_track_features(item['track']['id'])
             tracks.append(track)
         return tracks
-
-
-CID = '7c56991d824840bd82d5d7833f48bd00'
-CSECRET = 'c035b79d95f842a38a48bc267d018fa7'
-REDIRECT_URI = 'https://example.com/callback/'

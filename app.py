@@ -12,4 +12,4 @@ df = load_data('data/track_infoFull.csv')
 features_to_normalize = ['loudness', 'tempo', 'popularity']
 df, scaler = fit_and_normalize(df, features_to_normalize)
 
-
+# streamlit app
