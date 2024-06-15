@@ -4,13 +4,21 @@
 
 Intro: TBD.
 
-To create a song recommendation tool using my Spotify Kpop playlist and song features provided by Spotify based on user preferences
+To create a K-pop song recommendation tool using my Spotify Kpop playlist and song features provided by Spotify based on user preferences
 
-## Data Source
-**Spotify API:** I'm using the [Spotify Web API](https://developer.spotify.com/documentation/web-api) to fetch song metadata and audio features
+## To Run the App
 
-## Data Engineering TBD
+Streamlit
 
-- Created a playlist by manually combining lots of Kpop playlists.
-- Gather metadata from those songs
-- Data cleaning
+## Data Engineering
+**Spotify API:** I'm using the [Spotify Web API](https://developer.spotify.com/documentation/web-api) to fetch song metadata and audio features.
+
+I manually combined 30+ random K-pop playlists created by other users into one playlist, removed duplicate songs, then fetched track metadata into the ```data/track_infoFull.csv``` file. I am using this file as my recommender database.
+
+## Exploratory Data Analysis
+
+
+
+## Challenges
+
+- How to keep the database updated?
