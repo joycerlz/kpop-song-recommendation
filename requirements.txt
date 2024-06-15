@@ -1,3 +1,5 @@
 spotipy
 streamlit
+scikit-learn
 pandas
+numpy
