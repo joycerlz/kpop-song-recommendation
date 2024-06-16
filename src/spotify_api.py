@@ -1,10 +1,16 @@
 import spotipy
+import numpy as np
+import pandas as pd
 from spotipy.oauth2 import SpotifyClientCredentials
 
 class SpotifyAPI:
     def __init__(self, CID, CSECRET):
         auth_manager = SpotifyClientCredentials(client_id=CID, client_secret=CSECRET)
         self.sp = spotipy.Spotify(auth_manager=auth_manager)
+        self.headers = ['track_id', 'track_name', 'album', 'artist', 'release_date',
+                        'length', 'popularity', 'danceability', 'acousticness', 'energy',
+                        'instrumentalness', 'liveness', 'loudness', 'speechiness',
+                        'tempo', 'time_signature']
 
     # get features of each track from track id
     def get_track_features(self, track_id):
@@ -38,3 +44,23 @@ class SpotifyAPI:
             track = self.get_track_features(item['track']['id'])
             tracks.append(track)
         return tracks
+
+    def process_url(self, url):
+        track_features = []
+        if "track" in url:
+            track_id = url.split('/')[-1].split('?')[0]
+            features = self.get_track_features(track_id)
+            track_features.append(features)
+
+        elif "playlist" in url:
+            playlist_id = url.split('/')[-1].split('?')[0]
+            tracks = self.sp.playlist_tracks(playlist_id)["items"]
+            np.random.shuffle(tracks)
+            for item in tracks[:100]:
+                track_id = item["track"]["id"]
+                features = self.get_track_features(track_id)
+                track_features.append(features)
+
+        features_df = pd.DataFrame(track_features, columns=self.headers)
+        return features_df
+
