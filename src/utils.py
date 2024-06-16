@@ -26,10 +26,10 @@ def normalize_user_data(df, scaler, features_to_normalize):
 def load_data(file_path):
     return pd.read_csv(file_path)
 
-def get_recommendations(user_features_df, df, top_n=10):
+def get_recommendations(df, user_df, top_n=10):
     features_to_include = ['loudness', 'tempo', 'danceability', 'acousticness', 'energy', 'instrumentalness', 'liveness', 'speechiness']
     normalized_features = df[features_to_include].values
-    user_normalized = user_features_df[features_to_include].values
+    user_normalized = user_df[features_to_include].values
 
     similarity_scores = cosine_similarity(normalized_features, user_normalized)
 
