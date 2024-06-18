@@ -45,7 +45,7 @@ class SpotifyAPI:
             tracks.append(track)
         return tracks
 
-    def process_url(self, url):
+    def get_df_from_url(self, url):
         track_features = []
         if "track" in url:
             track_id = url.split('/')[-1].split('?')[0]
