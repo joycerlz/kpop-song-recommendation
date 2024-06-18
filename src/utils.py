@@ -41,7 +41,3 @@ def get_recommendations(df, user_df, top_n=10):
 
     top_indices = mean_similarity.argsort()[-top_n:][::-1]
     return df.iloc[top_indices]
-
-# Example usage: Get recommendations based on user input
-# recommendations = get_recommendations(user_features_df, df, features_to_normalize)
-# recommendations[['track_name', 'artist', 'album']]
