@@ -31,21 +31,6 @@ def is_valid_spotify_url(url):
 # streamlit app
 st.set_page_config(page_title="K-pop Song Recommendation System", layout="wide")
 
-# st.markdown(
-#     """
-#     <style>
-#     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child{
-#         width: 400px;
-#     }
-#     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child{
-#         width: 350px;
-#         margin-left: -300px;
-#     }
-
-#     """,
-#     unsafe_allow_html=True,
-# )
-
 url_instruction = '''
         :mag: To get URL:
         - Go to the song or playlist you would like to share
